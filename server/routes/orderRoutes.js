@@ -101,25 +101,28 @@ router.post("/", async (req, res) => {
 
   const html = buildOrderHtml(order);
 
-  try {
-    await sendEmail({
-      to: email,
-      subject: `Dr M Organics Order Confirmation - ${order._id}`,
-      html
-    });
+  res.status(201).json(order);
 
-    if (process.env.ADMIN_NOTIFY_EMAIL) {
-      await sendEmail({
+Promise.allSettled([
+  sendEmail({
+    to: email,
+    subject: `Dr M Organics Order Confirmation - ${order._id}`,
+    html
+  }),
+  process.env.ADMIN_NOTIFY_EMAIL
+    ? sendEmail({
         to: process.env.ADMIN_NOTIFY_EMAIL,
         subject: `New Dr M Organics Order - ${order._id}`,
         html
-      });
+      })
+    : Promise.resolve()
+]).then((results) => {
+  results.forEach((result) => {
+    if (result.status === "rejected") {
+      console.error("Email error:", result.reason.message);
     }
-  } catch (error) {
-    console.error("Email error:", error.message);
-  }
-
-  res.status(201).json(order);
+  });
+});
 });
 
 router.get("/", protect, async (req, res) => {
