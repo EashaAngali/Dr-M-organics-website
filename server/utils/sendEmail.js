@@ -1,21 +1,15 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 const sendEmail = async ({ to, subject, html }) => {
-  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-    console.log("Email skipped: EMAIL_USER or EMAIL_PASS missing");
+  if (!process.env.RESEND_API_KEY) {
+    console.log("Email skipped: RESEND_API_KEY missing");
     return;
   }
 
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS
-    }
-  });
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
-  await transporter.sendMail({
-    from: `Dr M Organics <${process.env.EMAIL_USER}>`,
+  await resend.emails.send({
+    from: "Dr M Organics <onboarding@resend.dev>",
     to,
     subject,
     html
