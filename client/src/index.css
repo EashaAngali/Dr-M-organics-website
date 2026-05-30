@@ -161,7 +161,7 @@ h2 {
 }
 .site-logo-img {
   width: 100px;
-  height: auto;
+  height: 50px;
   object-fit: contain;
   display: block;
 }
