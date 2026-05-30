@@ -9,6 +9,10 @@ const Footer = () => {
         <div className="footer-about">
           <Link className="logo footer-logo" to="/">
   <img src={logo} alt="Dr M Organics Logo" className="site-logo-img footer-logo-img" />
+            <span className="logo-text">
+    <strong>Dr M</strong>
+    <small>Organics</small>
+  </span>
 </Link>
           <p>
             Premium organic skincare and haircare inspired by nature, clean beauty,
