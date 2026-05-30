@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { FaLeaf, FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
+import logo from "./drm-logo.png";
 
 const Footer = () => {
   return (
@@ -7,12 +8,8 @@ const Footer = () => {
       <div className="footer-grid">
         <div className="footer-about">
           <Link className="logo footer-logo" to="/">
-            <span className="logo-icon"><FaLeaf /></span>
-            <span>
-              <strong>Dr M</strong>
-              <small>Organics</small>
-            </span>
-          </Link>
+  <img src={logo} alt="Dr M Organics Logo" className="site-logo-img footer-logo-img" />
+</Link>
           <p>
             Premium organic skincare and haircare inspired by nature, clean beauty,
             and everyday self-care rituals.
