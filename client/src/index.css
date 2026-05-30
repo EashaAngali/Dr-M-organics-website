@@ -159,7 +159,20 @@ h2 {
   border-radius: 14px;
   margin-bottom: 15px;
 }
-
+.site-logo-img {
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+@media (max-width: 768px) {
+  .site-logo-img {
+    width: 120px;
+  }
+}
+.footer-logo-img {
+  width: 170px;
+}
 .form-message {
   margin-top: 14px;
   color: var(--dark-green);
