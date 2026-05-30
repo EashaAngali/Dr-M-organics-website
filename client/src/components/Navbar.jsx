@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FiSearch, FiUser, FiShoppingBag, FiMenu, FiX } from "react-icons/fi";
-import { FaLeaf } from "react-icons/fa";
+import logo from "./drm-logo.png";
+// import { FaLeaf } from "react-icons/fa";
 import { useCart } from "../context/CartContext.jsx";
 import { useAuth } from "../context/AuthContext.jsx";
 
@@ -22,13 +23,9 @@ const Navbar = () => {
 
       <header className="header">
         <nav className="navbar">
-          <Link className="logo" to="/">
-            <span className="logo-icon"><FaLeaf /></span>
-            <span>
-              <strong>Dr M</strong>
-              <small>Organics</small>
-            </span>
-          </Link>
+         <Link className="logo" to="/">
+  <img src={logo} alt="Dr M Organics Logo" className="site-logo-img" />
+</Link>
 
           <ul className={open ? "nav-links active" : "nav-links"}>
             <li><NavLink to="/" onClick={() => setOpen(false)}>Home</NavLink></li>
