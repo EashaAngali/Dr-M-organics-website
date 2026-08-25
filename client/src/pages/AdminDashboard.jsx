@@ -21,6 +21,10 @@ const AdminDashboard = () => {
           <h3>Orders</h3>
           <p>View orders and update order status.</p>
         </Link>
+        <Link to="/admin/reviews" className="dashboard-card">
+          <h3>Reviews</h3>
+          <p>Moderate customer reviews, photos, and official replies.</p>
+        </Link>
         <Link to="/shop" className="dashboard-card">
           <h3>View Store</h3>
           <p>Open the public product collection.</p>
