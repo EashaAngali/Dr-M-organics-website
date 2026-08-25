@@ -3722,3 +3722,535 @@ th {
   }
 
 }
+/* =========================================================
+   PRODUCT DETAIL - PURCHASE / TRUST / ACCORDION AREA
+   Dr M Organics Premium Styling
+========================================================= */
+
+
+/* =========================
+   QUANTITY + WISHLIST ROW
+========================= */
+
+.premium-detail-content .purchase-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 24px 0 14px;
+}
+
+
+/* Quantity selector */
+
+.premium-detail-content .premium-quantity {
+  display: inline-flex;
+  align-items: center;
+
+  height: 48px;
+
+  border: 1px solid rgba(63, 111, 59, 0.22);
+  border-radius: 50px;
+
+  background: #fffdf8;
+
+  overflow: hidden;
+}
+
+.premium-detail-content .premium-quantity button {
+  width: 44px;
+  height: 46px;
+
+  border: 0;
+  background: transparent;
+
+  color: #355d39;
+
+  font-size: 20px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.premium-detail-content .premium-quantity button:hover {
+  background: #edf4e9;
+  color: #294b2e;
+}
+
+.premium-detail-content .premium-quantity span {
+  min-width: 42px;
+
+  text-align: center;
+
+  color: #263d29;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+/* =========================
+   WISHLIST
+========================= */
+
+.premium-detail-content .wishlist-detail {
+  min-height: 48px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 0 20px;
+
+  border: 1px solid rgba(63, 111, 59, 0.25);
+  border-radius: 50px;
+
+  background: #ffffff;
+
+  color: #355d39;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: none;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.premium-detail-content .wishlist-detail svg {
+  font-size: 16px;
+}
+
+.premium-detail-content .wishlist-detail:hover {
+  background: #f0f5ec;
+  border-color: #668162;
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   ADD TO CART + BUY NOW
+========================= */
+
+.premium-detail-content .purchase-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 14px;
+
+  margin: 0 0 25px;
+}
+
+.premium-detail-content .purchase-buttons .btn {
+  width: 100%;
+  min-height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 0.01em;
+}
+
+.premium-detail-content
+.purchase-buttons
+.primary-btn {
+  background: #3f7542;
+  border-color: #3f7542;
+  color: #ffffff;
+
+  box-shadow:
+    0 10px 25px rgba(63, 117, 66, 0.18);
+}
+
+.premium-detail-content
+.purchase-buttons
+.primary-btn:hover {
+  background: #315f35;
+  border-color: #315f35;
+  transform: translateY(-2px);
+}
+
+.premium-detail-content
+.purchase-buttons
+.secondary-btn {
+  background: transparent;
+  border: 1px solid #548158;
+  color: #315f35;
+}
+
+.premium-detail-content
+.purchase-buttons
+.secondary-btn:hover {
+  background: #edf4e9;
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   TRUST INDICATORS
+========================================================= */
+
+.premium-detail-content .trust-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 10px;
+
+  margin: 4px 0 27px;
+}
+
+.premium-detail-content .trust-grid > div {
+  min-height: 65px;
+
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  padding: 13px 15px;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fbfaf5 0%,
+      #f1f6ed 100%
+    );
+
+  border: 1px solid rgba(63, 111, 59, 0.10);
+
+  color: #344c37;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  line-height: 1.35;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.premium-detail-content
+.trust-grid > div:hover {
+  transform: translateY(-2px);
+
+  border-color:
+    rgba(63, 111, 59, 0.22);
+}
+
+.premium-detail-content .trust-grid svg {
+  width: 20px;
+  min-width: 20px;
+
+  color: #63805d;
+
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   PRODUCT INFORMATION ACCORDIONS
+========================================================= */
+
+.premium-detail-content .product-accordions {
+  margin-top: 8px;
+
+  border-top:
+    1px solid rgba(53, 82, 56, 0.12);
+}
+
+
+/* Individual accordion */
+
+.premium-detail-content
+.product-accordions details {
+  margin: 0;
+
+  border-bottom:
+    1px solid rgba(53, 82, 56, 0.12);
+
+  background: transparent;
+}
+
+
+/* Remove browser default arrow */
+
+.premium-detail-content
+.product-accordions summary {
+  list-style: none;
+}
+
+.premium-detail-content
+.product-accordions summary::-webkit-details-marker {
+  display: none;
+}
+
+
+/* Accordion title */
+
+.premium-detail-content
+.product-accordions summary {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  min-height: 57px;
+
+  padding: 15px 42px 15px 4px;
+
+  color: #29442d;
+
+  font-family: "Marcellus", serif;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  user-select: none;
+
+  transition:
+    color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.premium-detail-content
+.product-accordions summary:hover {
+  color: #47734a;
+  padding-left: 8px;
+}
+
+
+/* Custom + icon */
+
+.premium-detail-content
+.product-accordions summary::after {
+  content: "+";
+
+  position: absolute;
+
+  right: 7px;
+  top: 50%;
+
+  width: 28px;
+  height: 28px;
+
+  display: grid;
+  place-items: center;
+
+  transform: translateY(-50%);
+
+  border-radius: 50%;
+
+  background: #eef4ea;
+
+  color: #456d48;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 18px;
+  font-weight: 400;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+
+/* Open = minus */
+
+.premium-detail-content
+.product-accordions details[open]
+summary::after {
+  content: "−";
+
+  background: #dfeadd;
+}
+
+
+/* Open title */
+
+.premium-detail-content
+.product-accordions details[open]
+summary {
+  color: #355f39;
+}
+
+
+/* Accordion content */
+
+.premium-detail-content
+.product-accordions details > p {
+  margin: 0;
+
+  padding:
+    0 42px 20px 4px;
+
+  color: #66675f;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+
+  white-space: pre-line;
+}
+
+
+/* Link inside reviews accordion */
+
+.premium-detail-content
+.product-accordions details > p a {
+  color: #46734a;
+
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+.premium-detail-content
+.product-accordions details > p a:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   DESCRIPTION ABOVE OPTIONS
+========================================================= */
+
+.premium-detail-content .detail-description {
+  margin: 16px 0 20px;
+
+  color: #65655f;
+
+  font-size: 14px;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .premium-detail-content .purchase-row {
+    display: grid;
+
+    grid-template-columns:
+      auto 1fr;
+
+    gap: 10px;
+
+    margin-top: 20px;
+  }
+
+
+  .premium-detail-content
+  .wishlist-detail {
+    width: 100%;
+  }
+
+
+  .premium-detail-content
+  .purchase-buttons {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+  }
+
+
+  .premium-detail-content
+  .purchase-buttons .btn {
+    min-height: 52px;
+
+    padding:
+      12px 10px;
+
+    font-size: 13px;
+  }
+
+
+  .premium-detail-content .trust-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 8px;
+  }
+
+
+  .premium-detail-content
+  .trust-grid > div {
+    min-height: 70px;
+
+    align-items: flex-start;
+
+    padding: 12px;
+
+    font-size: 11px;
+  }
+
+
+  .premium-detail-content
+  .trust-grid svg {
+    margin-top: 1px;
+  }
+
+
+  .premium-detail-content
+  .product-accordions summary {
+    min-height: 55px;
+
+    padding:
+      14px 39px 14px 2px;
+
+    font-size: 15px;
+  }
+
+
+  .premium-detail-content
+  .product-accordions details > p {
+    padding:
+      0 12px 18px 2px;
+
+    font-size: 12px;
+  }
+
+}
+
+
+/* Very small phones */
+
+@media (max-width: 390px) {
+
+  .premium-detail-content
+  .purchase-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .premium-detail-content
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
