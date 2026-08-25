@@ -14,10 +14,18 @@ const Navbar = () => {
   return (
     <>
       <div className="top-bar">
-        <p>Free Delivery on Orders Above Rs. 3000 | Organic Beauty Essentials</p>
+        <p>Free Delivery on Orders Above Rs. 7000 | Organic Beauty Essentials</p>
         <div className="top-socials">
           <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
-          <a href="https://wa.me/923000000000" target="_blank" rel="noreferrer">WhatsApp</a>
+        <a
+  href={`https://wa.me/923172200083?text=${encodeURIComponent(
+    "Hi Dr M Organics, I would like to know more about your products."
+  )}`}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  WhatsApp
+</a>
         </div>
       </div>
 
