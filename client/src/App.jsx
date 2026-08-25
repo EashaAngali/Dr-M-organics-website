@@ -16,7 +16,7 @@ import AdminDashboard from "./pages/AdminDashboard.jsx";
 import AdminProducts from "./pages/AdminProducts.jsx";
 import AdminOrders from "./pages/AdminOrders.jsx";
 import AdminReviews from "./pages/AdminReviews.jsx";
-
+import WriteReview from "./pages/WriteReview.jsx";
 function App() {
   return (
     <>
@@ -65,6 +65,10 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+  path="/write-review"
+  element={<WriteReview />}
+/>
         </Routes>
       </main>
       <Footer />
