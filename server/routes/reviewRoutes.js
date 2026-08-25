@@ -187,18 +187,58 @@ router.get("/", protect, async (req, res) => {
 });
 
 router.put("/:id", protect, async (req, res) => {
-  const allowed = ["status", "featured", "adminReply", "title", "review"];
-  const updates = {};
-  allowed.forEach((key) => {
-    if (req.body[key] !== undefined) updates[key] = req.body[key];
-  });
+  try {
 
-  const review = await Review.findByIdAndUpdate(req.params.id, updates, { new: true, runValidators: true })
-    .populate("product", "name image");
-  if (!review) return res.status(404).json({ message: "Review not found" });
-  res.json(review);
+    // Admin is ONLY allowed to moderate reviews.
+    // Admin cannot modify customer-written content.
+
+    const allowedFields = [
+      "status",
+      "featured",
+      "adminReply"
+    ];
+
+    const updates = {};
+
+    allowedFields.forEach((field) => {
+      if (req.body[field] !== undefined) {
+        updates[field] = req.body[field];
+      }
+    });
+
+    const review =
+      await Review.findByIdAndUpdate(
+        req.params.id,
+        updates,
+        {
+          new: true,
+          runValidators: true
+        }
+      ).populate(
+        "product",
+        "name image"
+      );
+
+    if (!review) {
+      return res
+        .status(404)
+        .json({
+          message: "Review not found"
+        });
+    }
+
+    res.json(review);
+
+  } catch (error) {
+
+    console.error(error);
+
+    res.status(500).json({
+      message: "Unable to update review"
+    });
+
+  }
 });
-
 router.delete("/:id", protect, async (req, res) => {
   const review = await Review.findById(req.params.id);
   if (!review) return res.status(404).json({ message: "Review not found" });
