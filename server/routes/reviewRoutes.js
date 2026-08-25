@@ -157,6 +157,57 @@ router.post("/:id/report", async (req, res) => {
   res.json({ message: "Review reported. Thank you for the feedback." });
 });
 
+router.get("/public", async (req, res) => {
+  try {
+    const page = Math.max(
+      1,
+      Number(req.query.page) || 1
+    );
+
+    const limit = Math.min(
+      20,
+      Math.max(1, Number(req.query.limit) || 9)
+    );
+
+    const filter = {
+      status: "Approved"
+    };
+
+    const total =
+      await Review.countDocuments(filter);
+
+    const reviews = await Review.find(filter)
+      .populate(
+        "product",
+        "name image slug"
+      )
+      .select("-email")
+      .sort({
+        featured: -1,
+        createdAt: -1
+      })
+      .skip((page - 1) * limit)
+      .limit(limit);
+
+    res.json({
+      reviews,
+      total,
+      page,
+      pages: Math.max(
+        1,
+        Math.ceil(total / limit)
+      )
+    });
+
+  } catch (error) {
+    console.error(error);
+
+    res.status(500).json({
+      message:
+        "Unable to load customer reviews."
+    });
+  }
+});
 router.get("/", protect, async (req, res) => {
   const { status, rating, verified, search, sort = "newest" } = req.query;
   const filter = {};
