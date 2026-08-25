@@ -49,8 +49,8 @@ const Footer = () => {
         <div>
           <h3>Contact</h3>
           <ul>
-            <li>hello@drmorganics.com</li>
-            <li>+92 300 0000000</li>
+            <li>drmorganics6@gmail.com</li>
+            <li>+92 3172200083</li>
             <li>Karachi, Pakistan</li>
           </ul>
         </div>
