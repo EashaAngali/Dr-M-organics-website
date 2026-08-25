@@ -43,11 +43,40 @@ const Contact = () => {
 
         <div className="contact-card">
           <h3>Contact Details</h3>
-          <p><strong>Email:</strong> drmorganics6@gmail.com</p>
-          <p><strong>WhatsApp:</strong> +92 3172200083</p>
-          <p><strong>Location:</strong> Karachi, Pakistan</p>
-          <a className="btn secondary-btn" href="https://wa.me/923172200083" target="_blank" rel="noreferrer">Chat on WhatsApp</a>
-        </div>
+          <p>
+  <strong>Email:</strong>{" "}
+  <a href="mailto:drmorganics6@gmail.com">
+    drmorganics6@gmail.com
+  </a>
+</p>
+
+<p>
+  <strong>WhatsApp:</strong>{" "}
+  <a
+    href={`https://wa.me/923172200083?text=${encodeURIComponent(
+      "Hi Dr M Organics, I would like to know more about your products."
+    )}`}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    +92 317 2200083
+  </a>
+</p>
+
+<p>
+  <strong>Location:</strong> Karachi, Pakistan
+</p>
+
+<a
+  className="btn secondary-btn"
+  href={`https://wa.me/923172200083?text=${encodeURIComponent(
+    "Hi Dr M Organics, I would like to know more about your products."
+  )}`}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Chat on WhatsApp
+</a></div>
       </div>
     </section>
   );
