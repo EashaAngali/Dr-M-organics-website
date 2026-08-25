@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { FaCheckCircle, FaRegThumbsUp, FaUpload } from "react-icons/fa";
 import api from "../api/axios.js";
 import RatingStars from "./RatingStars.jsx";
@@ -32,12 +33,22 @@ const optimizeImage = (file) => new Promise((resolve) => {
   image.src = url;
 });
 
-const ReviewSection = ({ productId, onSummaryChange }) => {
+const ReviewSection = ({
+  productId,
+  onSummaryChange
+}) => {
+
+  const [searchParams] = useSearchParams();
+
+  const openReviewForm =
+    searchParams.get("writeReview") === "1";
+
   const [reviews, setReviews] = useState([]);
   const [summary, setSummary] = useState({ average: 0, total: 0, recommendPercent: 0, distribution: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 } });
   const [page, setPage] = useState(1);
   const [pages, setPages] = useState(1);
-  const [showForm, setShowForm] = useState(false);
+  const [showForm, setShowForm] =
+  useState(openReviewForm);
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [preview, setPreview] = useState(null);
@@ -54,9 +65,26 @@ const ReviewSection = ({ productId, onSummaryChange }) => {
     onSummaryChange?.(data.summary);
   };
 
-  useEffect(() => {
-    load(1).catch(() => {});
-  }, [productId]);
+useEffect(() => {
+
+  if (!openReviewForm) return;
+
+  setShowForm(true);
+
+  const timer = setTimeout(() => {
+
+    document
+      .getElementById("review-form")
+      ?.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+  }, 250);
+
+  return () => clearTimeout(timer);
+
+}, [openReviewForm, productId]);
 
   const percentFor = (star) => summary.total ? Math.round((summary.distribution[star] / summary.total) * 100) : 0;
 
@@ -118,7 +146,11 @@ const ReviewSection = ({ productId, onSummaryChange }) => {
       {message && <p className="review-message">{message}</p>}
 
       {showForm && (
-        <form className="review-form" onSubmit={submit}>
+       <form
+  className="review-form"
+  id="review-form"
+  onSubmit={submit}
+>
           <div className="review-form-head">
             <div><span className="eyebrow">Share your experience</span><h3>Write a Review</h3></div>
             <button type="button" className="text-close" onClick={() => setShowForm(false)}>Close</button>
