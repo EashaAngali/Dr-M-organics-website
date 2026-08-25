@@ -3290,3 +3290,435 @@ th {
   }
 
 }
+/* =====================================================
+   PREMIUM ADMIN - ADD / EDIT PRODUCT FORM
+===================================================== */
+
+.admin-product-form {
+  max-width: 1100px;
+  margin: 0 auto 45px;
+
+  padding: clamp(24px, 4vw, 44px);
+
+  border-radius: 30px;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(63, 111, 59, 0.10);
+
+  box-shadow:
+    0 20px 55px rgba(44, 68, 36, 0.09);
+}
+
+
+/* Main heading */
+
+.admin-product-form > h3 {
+  margin-bottom: 10px;
+
+  color: #243c28;
+
+  font-family: "Marcellus", serif;
+
+  font-size: clamp(27px, 3vw, 38px);
+
+  font-weight: 400;
+}
+
+
+/* =====================================================
+   SEPARATE FORM SECTIONS
+===================================================== */
+
+.admin-form-section {
+  margin-top: 25px;
+
+  padding: 26px;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fffdf9 0%,
+      #fbf8f1 100%
+    );
+
+  border:
+    1px solid rgba(63, 111, 59, 0.10);
+}
+
+
+.admin-form-section-head {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 14px;
+
+  margin-bottom: 22px;
+
+  padding-bottom: 17px;
+
+  border-bottom:
+    1px solid rgba(63, 111, 59, 0.09);
+}
+
+
+.admin-form-section-head > span {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: #eaf2e6;
+
+  color: #3f6f3b;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+
+.admin-form-section-head h4 {
+  margin: 0 0 3px;
+
+  color: #29432d;
+
+  font-family: "Marcellus", serif;
+
+  font-size: 21px;
+
+  font-weight: 400;
+}
+
+
+.admin-form-section-head p {
+  margin: 0;
+
+  color: #888;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+}
+
+
+/* =====================================================
+   FORM FIELD
+===================================================== */
+
+.admin-field {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+
+  margin-bottom: 18px;
+}
+
+
+.admin-field:last-child {
+  margin-bottom: 0;
+}
+
+
+.admin-field label {
+  color: #344e38;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.01em;
+}
+
+
+.admin-field label em {
+  margin-left: 5px;
+
+  color: #a06d58;
+
+  font-size: 9px;
+
+  font-style: normal;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+}
+
+
+.admin-field small {
+  padding-left: 2px;
+
+  color: #999;
+
+  font-size: 10px;
+
+  line-height: 1.5;
+}
+
+
+/* =====================================================
+   ADMIN INPUTS
+===================================================== */
+
+.admin-product-form input,
+.admin-product-form select,
+.admin-product-form textarea {
+  width: 100%;
+
+  border:
+    1px solid rgba(63, 111, 59, 0.16);
+
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  color: #343434;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  outline: none;
+
+  transition:
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease;
+}
+
+
+.admin-product-form input,
+.admin-product-form select {
+  min-height: 49px;
+
+  padding: 12px 15px;
+}
+
+
+.admin-product-form textarea {
+  min-height: 145px;
+
+  padding: 14px 16px;
+
+  line-height: 1.65;
+
+  resize: vertical;
+}
+
+
+.admin-product-form textarea::placeholder,
+.admin-product-form input::placeholder {
+  color: #aaa;
+
+  opacity: 1;
+}
+
+
+.admin-product-form input:focus,
+.admin-product-form select:focus,
+.admin-product-form textarea:focus {
+  border-color:
+    rgba(63, 111, 59, 0.55);
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 4px rgba(63, 111, 59, 0.07);
+}
+
+
+/* Description larger than normal */
+
+.admin-large-textarea {
+  min-height: 200px !important;
+}
+
+
+/* =====================================================
+   BENEFITS / INGREDIENTS / USAGE GRID
+===================================================== */
+
+.admin-content-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+
+.admin-content-grid .admin-field {
+  height: 100%;
+
+  margin: 0;
+
+  padding: 18px;
+
+  border-radius: 17px;
+
+  background: #ffffff;
+
+  border:
+    1px solid rgba(63, 111, 59, 0.08);
+}
+
+
+.admin-content-grid textarea {
+  flex: 1;
+
+  min-height: 155px;
+}
+
+
+.full-content-field {
+  margin-bottom: 22px;
+}
+
+
+/* Precautions full width */
+
+.admin-precaution-field {
+  grid-column: 1 / -1;
+}
+
+
+.admin-precaution-field textarea {
+  min-height: 120px;
+}
+
+
+/* =====================================================
+   ORIGINAL TOP FORM GRID
+===================================================== */
+
+.admin-product-form > .form-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 15px;
+
+  padding: 22px;
+
+  border-radius: 20px;
+
+  background: #f9f6ef;
+
+  border:
+    1px solid rgba(63, 111, 59, 0.08);
+}
+
+
+/* =====================================================
+   FEATURED CHECKBOX
+===================================================== */
+
+.admin-product-form .checkbox-row {
+  margin-top: 23px;
+
+  padding: 15px 17px;
+
+  border-radius: 14px;
+
+  background: #edf4e9;
+
+  border:
+    1px solid rgba(63, 111, 59, 0.10);
+
+  color: #344e38;
+}
+
+
+.admin-product-form .checkbox-row input {
+  width: 18px;
+  height: 18px;
+
+  min-height: auto;
+
+  accent-color: #3f6f3b;
+}
+
+
+/* =====================================================
+   SAVE BUTTON
+===================================================== */
+
+.admin-product-form .full-btn {
+  min-height: 50px;
+
+  margin-top: 8px;
+
+  border-radius: 50px !important;
+
+  font-weight: 700;
+
+  letter-spacing: 0.01em;
+}
+
+
+/* =====================================================
+   PRODUCT TABLE SEPARATION
+===================================================== */
+
+.admin-product-form + .table-wrap {
+  margin-top: 45px;
+
+  border-radius: 22px;
+
+  overflow: auto;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 760px) {
+
+  .admin-product-form {
+    padding: 22px 16px;
+
+    border-radius: 22px;
+  }
+
+  .admin-form-section {
+    padding: 20px 15px;
+
+    border-radius: 18px;
+  }
+
+  .admin-product-form > .form-grid,
+  .admin-content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-precaution-field {
+    grid-column: auto;
+  }
+
+  .admin-content-grid .admin-field {
+    padding: 15px;
+  }
+
+  .admin-product-form textarea {
+    min-height: 135px;
+  }
+
+  .admin-large-textarea {
+    min-height: 180px !important;
+  }
+
+}
