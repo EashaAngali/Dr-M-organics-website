@@ -17,6 +17,7 @@ import AdminProducts from "./pages/AdminProducts.jsx";
 import AdminOrders from "./pages/AdminOrders.jsx";
 import AdminReviews from "./pages/AdminReviews.jsx";
 import WriteReview from "./pages/WriteReview.jsx";
+import CustomerReviews from "./pages/CustomerReviews.jsx";
 function App() {
   return (
     <>
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/reviews"element={<CustomerReviews />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
@@ -65,6 +67,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+ 
           <Route
   path="/write-review"
   element={<WriteReview />}
