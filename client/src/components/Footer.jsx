@@ -22,7 +22,16 @@ const Footer = () => {
             <a href="https://facebook.com" target="_blank" rel="noreferrer"><FaFacebookF /></a>
             <a href="https://instagram.com" target="_blank" rel="noreferrer"><FaInstagram /></a>
             <a href="https://tiktok.com" target="_blank" rel="noreferrer"><FaTiktok /></a>
-            <a href="https://wa.me/923000000000" target="_blank" rel="noreferrer"><FaWhatsapp /></a>
+            <a
+  href={`https://wa.me/923172200083?text=${encodeURIComponent(
+    "Hi Dr M Organics, I would like to know more about your products."
+  )}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Chat with Dr M Organics on WhatsApp"
+>
+  <FaWhatsapp />
+</a>
           </div>
         </div>
 
@@ -49,8 +58,23 @@ const Footer = () => {
         <div>
           <h3>Contact</h3>
           <ul>
-            <li>drmorganics6@gmail.com</li>
-            <li>+92 3172200083</li>
+           <li>
+  <a href="mailto:drmorganics6@gmail.com">
+    drmorganics6@gmail.com
+  </a>
+</li>
+
+<li>
+  <a
+    href={`https://wa.me/923172200083?text=${encodeURIComponent(
+      "Hi Dr M Organics, I would like to know more about your products."
+    )}`}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    +92 317 2200083
+  </a>
+</li>
             <li>Karachi, Pakistan</li>
           </ul>
         </div>
