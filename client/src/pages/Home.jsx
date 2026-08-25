@@ -73,7 +73,83 @@ const Home = () => {
 
       {customerPhotos.length > 0 && <section className="section homepage-customer-gallery"><div className="section-heading"><span className="section-tag">Real Customers. Real Experiences.</span><h2>Your Glow, Your Story</h2><p>Approved customer photos shared through product reviews.</p></div><div className="home-customer-photo-grid">{customerPhotos.map(({ photo, review }, index) => <div key={`${review._id}-${index}`}><img src={photo.data} alt={`Dr M Organics customer experience by ${review.name}`} loading="lazy" /><span>{review.product?.name}</span></div>)}</div></section>}
 
-      <section className="story-cta"><div><span className="section-tag">Your Glow, Your Story</span><h2>Share your Dr M Organics experience.</h2><p>After using a product, open its page and submit your rating, review, photos, and optional video for moderation.</p><Link to="/shop" className="btn primary-btn">Share Your Experience</Link></div></section>
+      <section className="story-cta">
+
+  <div className="story-cta-inner">
+
+    <div className="story-cta-copy">
+
+      <span className="section-tag">
+        Your Glow, Your Story
+      </span>
+
+      <h2>
+        Used a Dr M Organics product?
+        Tell us how it went.
+      </h2>
+
+      <p>
+        Share an honest rating, your experience,
+        and optional photos or video.
+        Your review is submitted for moderation
+        before it appears publicly.
+      </p>
+
+      <div className="story-cta-points">
+
+        <span>
+          <FaCheckCircle />
+          Choose the product you used
+        </span>
+
+        <span>
+          <FaCheckCircle />
+          Add rating, review & photos
+        </span>
+
+        <span>
+          <FaCheckCircle />
+          Submitted as a customer review
+        </span>
+
+      </div>
+
+      <Link
+        to="/write-review"
+        className="btn primary-btn story-cta-btn"
+      >
+        Share Your Experience
+      </Link>
+
+    </div>
+
+    <div
+      className="story-cta-card"
+      aria-hidden="true"
+    >
+
+      <div className="story-quote-mark">
+        “
+      </div>
+
+      <div className="story-stars">
+        ★★★★★
+      </div>
+
+      <p>
+        Your experience can help another
+        customer choose with confidence.
+      </p>
+
+      <span>
+        Real Customers • Real Experiences
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
 
       <section className="section"><div className="section-heading"><span className="section-tag">@drmorganics</span><h2>Organic Beauty Inspiration</h2><p>Product rituals, botanical textures, and skincare moments.</p></div><div className="masonry-grid">{gallery.map((img, index) => <div className={`gallery-item ${index === 0 || index === 4 ? "tall" : ""} ${index === 2 ? "wide" : ""}`} key={img}><img src={img} alt="Dr M Organics beauty inspiration" loading="lazy" /></div>)}</div></section>
 
