@@ -60,15 +60,221 @@ const AdminProducts = () => {
           <input name="size" value={form.size} onChange={updateForm} placeholder="Size / variant e.g. 100 ml" />
           <select name="badge" value={form.badge} onChange={updateForm}><option value="">No badge</option><option>Best Seller</option><option>New</option><option>Trending</option></select>
         </div>
-        <input name="image" value={form.image} onChange={updateForm} placeholder="Main image URL" required />
-        <textarea name="imagesText" value={form.imagesText} onChange={updateForm} placeholder="Additional image URLs — one per line" />
-        <input name="shortBenefit" value={form.shortBenefit} onChange={updateForm} placeholder="Short benefit line e.g. Hydration • Brightening • Soft Skin" />
-        <textarea name="description" value={form.description} onChange={updateForm} placeholder="Description" required />
-        <textarea name="benefits" value={form.benefits} onChange={updateForm} placeholder="Key benefits" />
-        <textarea name="ingredients" value={form.ingredients} onChange={updateForm} placeholder="Ingredients" />
-        <textarea name="usage" value={form.usage} onChange={updateForm} placeholder="How to use" />
-        <textarea name="suitableFor" value={form.suitableFor} onChange={updateForm} placeholder="Suitable for" />
-        <textarea name="precautions" value={form.precautions} onChange={updateForm} placeholder="Precautions" />
+       {/* PRODUCT IMAGES */}
+<div className="admin-form-section">
+  <div className="admin-form-section-head">
+    <span>01</span>
+
+    <div>
+      <h4>Product Images</h4>
+      <p>
+        Add the main product image and optional gallery images.
+      </p>
+    </div>
+  </div>
+
+  <div className="admin-field">
+    <label>Main Product Image URL *</label>
+
+    <input
+      name="image"
+      value={form.image}
+      onChange={updateForm}
+      placeholder="https://example.com/product-image.webp"
+      required
+    />
+  </div>
+
+  <div className="admin-field">
+    <label>Additional Product Images</label>
+
+    <textarea
+      name="imagesText"
+      value={form.imagesText}
+      onChange={updateForm}
+      placeholder={`Paste one image URL per line
+
+Example:
+https://example.com/front.webp
+https://example.com/back.webp
+https://example.com/texture.webp`}
+    />
+
+    <small>
+      Add one image URL per line. These images will appear in
+      the product gallery.
+    </small>
+  </div>
+</div>
+
+
+{/* PRODUCT SUMMARY */}
+<div className="admin-form-section">
+
+  <div className="admin-form-section-head">
+    <span>02</span>
+
+    <div>
+      <h4>Product Summary</h4>
+      <p>
+        Add the short selling message shown near the product name.
+      </p>
+    </div>
+  </div>
+
+  <div className="admin-field">
+    <label>Short Benefit Line</label>
+
+    <input
+      name="shortBenefit"
+      value={form.shortBenefit}
+      onChange={updateForm}
+      placeholder="Hydration • Brightening • Soft Skin"
+    />
+
+    <small>
+      Keep this short. It appears as a quick benefit summary.
+    </small>
+  </div>
+
+</div>
+
+
+{/* PRODUCT CONTENT */}
+<div className="admin-form-section product-content-section">
+
+  <div className="admin-form-section-head">
+    <span>03</span>
+
+    <div>
+      <h4>Product Information</h4>
+
+      <p>
+        This content appears on the individual product page.
+      </p>
+    </div>
+  </div>
+
+
+  <div className="admin-field full-content-field">
+    <label>
+      Product Description <em>Required</em>
+    </label>
+
+    <textarea
+      className="admin-large-textarea"
+      name="description"
+      value={form.description}
+      onChange={updateForm}
+      placeholder="Describe the product, what it does, texture, formulation and the main reason customers should use it..."
+      required
+    />
+
+    <small>
+      Write a clear product overview. Avoid putting ingredients
+      or usage instructions here.
+    </small>
+  </div>
+
+
+  <div className="admin-content-grid">
+
+    <div className="admin-field">
+      <label>Key Benefits</label>
+
+      <textarea
+        name="benefits"
+        value={form.benefits}
+        onChange={updateForm}
+        placeholder={`Example:
+Brightens dull-looking skin
+Supports hydration
+Leaves skin soft and smooth`}
+      />
+
+      <small>
+        Add one benefit per line for cleaner presentation.
+      </small>
+    </div>
+
+
+    <div className="admin-field">
+      <label>Key Ingredients</label>
+
+      <textarea
+        name="ingredients"
+        value={form.ingredients}
+        onChange={updateForm}
+        placeholder={`Example:
+Niacinamide
+Aloe Vera
+Vitamin E
+Licorice Extract`}
+      />
+
+      <small>
+        List the important ingredients customers should know.
+      </small>
+    </div>
+
+
+    <div className="admin-field">
+      <label>How to Use</label>
+
+      <textarea
+        name="usage"
+        value={form.usage}
+        onChange={updateForm}
+        placeholder="Explain when, where and how much product should be applied..."
+      />
+
+      <small>
+        Keep the instructions simple and practical.
+      </small>
+    </div>
+
+
+    <div className="admin-field">
+      <label>Suitable For</label>
+
+      <textarea
+        name="suitableFor"
+        value={form.suitableFor}
+        onChange={updateForm}
+        placeholder={`Example:
+Normal skin
+Dry skin
+Combination skin
+Daily skincare routine`}
+      />
+
+      <small>
+        Mention relevant skin/hair types or customer groups.
+      </small>
+    </div>
+
+
+    <div className="admin-field admin-precaution-field">
+      <label>Precautions</label>
+
+      <textarea
+        name="precautions"
+        value={form.precautions}
+        onChange={updateForm}
+        placeholder={`Example:
+For external use only.
+Patch test before first use.
+Avoid direct contact with eyes.`}
+      />
+
+      <small>
+        Add important product-use precautions.
+      </small>
+    </div>
+
+  </div>
+
+</div>
         <label className="checkbox-row"><input type="checkbox" name="isFeatured" checked={form.isFeatured} onChange={updateForm} /> Featured product</label>
         <button className="btn primary-btn full-btn" disabled={loading}>{loading ? "Saving..." : editingId ? "Update Product" : "Add Product"}</button>
         {editingId && <button type="button" className="btn secondary-btn full-btn" onClick={() => { setEditingId(null); setForm(emptyForm); }}>Cancel Edit</button>}
