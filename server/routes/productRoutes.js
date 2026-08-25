@@ -1,9 +1,22 @@
 import express from "express";
 import slugify from "slugify";
+import mongoose from "mongoose";
 import Product from "../models/Product.js";
+import Review from "../models/Review.js";
 import { protect } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
+
+const attachReviewSummaries = async (products) => {
+  const ids = products.map((product) => product._id);
+  if (!ids.length) return products;
+  const summaries = await Review.aggregate([
+    { $match: { product: { $in: ids }, status: "Approved" } },
+    { $group: { _id: "$product", average: { $avg: "$rating" }, total: { $sum: 1 } } }
+  ]);
+  const map = new Map(summaries.map((row) => [String(row._id), { average: Number(row.average.toFixed(1)), total: row.total }]));
+  return products.map((product) => ({ ...product.toObject(), reviewSummary: map.get(String(product._id)) || { average: 0, total: 0 } }));
+};
 
 router.get("/", async (req, res) => {
   const { category, search, featured } = req.query;
@@ -20,13 +33,17 @@ router.get("/", async (req, res) => {
   }
 
   const products = await Product.find(filter).sort({ createdAt: -1 });
-  res.json(products);
+  res.json(await attachReviewSummaries(products));
 });
 
 router.get("/:id", async (req, res) => {
-  const product = await Product.findById(req.params.id);
+  const identifier = req.params.id;
+  const product = mongoose.isValidObjectId(identifier)
+    ? await Product.findById(identifier)
+    : await Product.findOne({ slug: identifier.toLowerCase() });
   if (!product) return res.status(404).json({ message: "Product not found" });
-  res.json(product);
+  const [withSummary] = await attachReviewSummaries([product]);
+  res.json(withSummary);
 });
 
 router.post("/", protect, async (req, res) => {
