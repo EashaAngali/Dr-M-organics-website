@@ -25,10 +25,12 @@ const Home = () => {
   useEffect(() => {
     Promise.all([
       api.get("/api/products?featured=true"),
-      api.get("/api/reviews/featured")
+      api.get("/api/reviews/public?limit=6")
     ]).then(([productsResponse, reviewsResponse]) => {
       setFeatured(productsResponse.data.slice(0, 6));
-      setFeaturedReviews(reviewsResponse.data);
+      setFeaturedReviews(
+  reviewsResponse.data.reviews || []
+);
     }).catch(() => {});
   }, []);
 
@@ -66,10 +68,149 @@ const Home = () => {
       <section className="section concern-section"><div className="section-heading"><span className="section-tag">Targeted Care</span><h2>Shop by Concern</h2><p>Explore the collection by skincare and haircare goals.</p></div><div className="concern-grid">{concerns.map((concern) => <Link to={`/shop?search=${encodeURIComponent(concern)}`} className="concern-card" key={concern}><FaSpa /><h3>{concern}</h3></Link>)}</div></section>
 
       <section className="section community-reviews-section">
-        <div className="section-heading"><span className="section-tag">Loved by Our Community</span><h2>Customer Experiences</h2><p>Only reviews approved from the real review database are shown here.</p></div>
-        {featuredReviews.length ? <div className="featured-review-slider">{featuredReviews.map((review) => <article className="community-review-card" key={review._id}><div className="community-review-top"><RatingStars value={review.rating} />{review.verifiedPurchase && <span className="verified-badge"><FaCheckCircle /> Verified Purchase</span>}</div><p>“{review.review}”</p><strong>{review.name}</strong><span>{review.product?.name}</span></article>)}</div> : <div className="empty-review-state"><h3>Community reviews will appear here</h3><p>Feature approved customer reviews from the admin dashboard to populate this section.</p></div>}
-        <div className="center-action"><Link to="/shop" className="btn secondary-btn">Read Product Reviews</Link></div>
-      </section>
+
+  <div className="community-reviews-shell">
+
+    <div className="community-section-header">
+
+      <div>
+
+        <span className="section-tag">
+          Loved by Our Community
+        </span>
+
+        <h2>
+          Customer Experiences
+        </h2>
+
+        <p>
+          Genuine reviews shared by customers
+          who have experienced Dr M Organics
+          products.
+        </p>
+
+      </div>
+
+      <Link
+        to="/reviews"
+        className="reviews-header-link"
+      >
+        Read All Reviews →
+      </Link>
+
+    </div>
+
+    {featuredReviews.length > 0 ? (
+
+      <div className="featured-review-slider">
+
+        {featuredReviews
+          .slice(0, 6)
+          .map((review) => (
+
+            <article
+              className="community-review-card"
+              key={review._id}
+            >
+
+              <div className="community-review-top">
+
+                <RatingStars
+                  value={review.rating}
+                />
+
+                {review.verifiedPurchase && (
+                  <span className="verified-badge">
+
+                    <FaCheckCircle />
+
+                    Verified Purchase
+
+                  </span>
+                )}
+
+              </div>
+
+              <div className="community-quote">
+                “
+              </div>
+
+              <p className="community-review-text">
+                {review.review}
+              </p>
+
+              <div className="community-review-author">
+
+                <div>
+
+                  <strong>
+                    {review.name}
+                  </strong>
+
+                  <span>
+                    {review.product?.name ||
+                      "Dr M Organics Customer"}
+                  </span>
+
+                </div>
+
+              </div>
+
+              {review.product?._id && (
+
+                <Link
+                  to={`/product/${review.product._id}#reviews`}
+                  className="community-product-link"
+                >
+                  Read Product Review →
+                </Link>
+
+              )}
+
+            </article>
+
+          ))}
+
+      </div>
+
+    ) : (
+
+      <div className="empty-review-state">
+
+        <h3>
+          Customer reviews coming soon
+        </h3>
+
+        <p>
+          Approved customer experiences
+          will appear here.
+        </p>
+
+      </div>
+
+    )}
+
+    <div className="customer-review-actions">
+
+      <Link
+        to="/reviews"
+        className="btn secondary-btn"
+      >
+        Read Product Reviews
+      </Link>
+
+      <Link
+        to="/write-review"
+        className="btn primary-btn"
+      >
+        Share Your Experience
+      </Link>
+
+    </div>
+
+  </div>
+
+</section>
 
       {customerPhotos.length > 0 && <section className="section homepage-customer-gallery"><div className="section-heading"><span className="section-tag">Real Customers. Real Experiences.</span><h2>Your Glow, Your Story</h2><p>Approved customer photos shared through product reviews.</p></div><div className="home-customer-photo-grid">{customerPhotos.map(({ photo, review }, index) => <div key={`${review._id}-${index}`}><img src={photo.data} alt={`Dr M Organics customer experience by ${review.name}`} loading="lazy" /><span>{review.product?.name}</span></div>)}</div></section>}
 
