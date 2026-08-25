@@ -85,6 +85,30 @@ useEffect(() => {
   return () => clearTimeout(timer);
 
 }, [openReviewForm, productId]);
+  useEffect(() => {
+
+  if (
+    window.location.hash !==
+    "#reviews"
+  ) {
+    return;
+  }
+
+  const timer = setTimeout(() => {
+
+    document
+      .getElementById("reviews")
+      ?.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+  }, 250);
+
+  return () =>
+    clearTimeout(timer);
+
+}, [productId]);
 
   const percentFor = (star) => summary.total ? Math.round((summary.distribution[star] / summary.total) * 100) : 0;
 
