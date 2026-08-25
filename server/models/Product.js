@@ -11,8 +11,15 @@ const productSchema = new mongoose.Schema(
     ingredients: { type: String, default: "" },
     usage: { type: String, default: "" },
     image: { type: String, required: true },
+    images: { type: [String], default: [] },
+    shortBenefit: { type: String, default: "" },
+    badge: { type: String, enum: ["", "Best Seller", "New", "Trending"], default: "" },
+    size: { type: String, default: "" },
+    benefits: { type: String, default: "" },
+    suitableFor: { type: String, default: "" },
+    precautions: { type: String, default: "" },
     stock: { type: Number, default: 0 },
-    rating: { type: Number, default: 5, min: 0, max: 5 },
+    rating: { type: Number, default: 0, min: 0, max: 5 },
     isFeatured: { type: Boolean, default: false }
   },
   { timestamps: true }
