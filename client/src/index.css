@@ -6461,3 +6461,635 @@ summary {
   }
 
 }
+/* ==================================================
+   FIX - HOMEPAGE CUSTOMER REVIEWS
+================================================== */
+
+
+/* ----------------------------------
+   REVIEW SECTION
+---------------------------------- */
+
+.community-reviews-section {
+  padding-top: 70px;
+  padding-bottom: 80px;
+}
+
+
+.community-reviews-shell {
+  position: relative;
+
+  overflow: hidden;
+
+  padding:
+    clamp(32px, 5vw, 65px);
+
+  border-radius: 34px;
+
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(182, 207, 169, 0.25),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(221, 191, 155, 0.18),
+      transparent 28%
+    ),
+    linear-gradient(
+      145deg,
+      #fffdf8 0%,
+      #faf4eb 52%,
+      #edf4e8 100%
+    );
+
+  border:
+    1px solid rgba(63, 111, 59, 0.1);
+
+  box-shadow:
+    0 22px 55px rgba(45, 70, 38, 0.08);
+}
+
+
+
+/* ----------------------------------
+   REVIEW HEADER
+---------------------------------- */
+
+.community-section-header {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-end;
+
+  gap: 30px;
+
+  margin-bottom: 38px;
+}
+
+
+.community-section-header h2 {
+  margin:
+    9px 0 10px;
+
+  color: var(--dark-green);
+
+  font-family:
+    "Marcellus",
+    serif;
+
+  font-size:
+    clamp(34px, 4vw, 48px);
+}
+
+
+.community-section-header p {
+  max-width: 590px;
+
+  margin: 0;
+
+  color: var(--gray);
+
+  line-height: 1.7;
+}
+
+
+.reviews-header-link {
+  flex-shrink: 0;
+
+  padding-bottom: 4px;
+
+  color: var(--green);
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  border-bottom:
+    1px solid rgba(63, 111, 59, 0.28);
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.reviews-header-link:hover {
+  color: var(--dark-green);
+
+  border-color: var(--dark-green);
+}
+
+
+
+/* ==================================================
+   IMPORTANT FIX:
+   1 REVIEW = CENTER
+   2 REVIEWS = CENTER
+   3+ REVIEWS = CLEAN GRID
+================================================== */
+
+.featured-review-slider {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(280px, 360px)
+    );
+
+  justify-content: center;
+
+  align-items: stretch;
+
+  gap: 22px;
+
+  width: 100%;
+
+  margin:
+    0 auto;
+}
+
+
+
+/* ----------------------------------
+   REVIEW CARD
+---------------------------------- */
+
+.community-review-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-height: 315px;
+
+  padding: 27px;
+
+  overflow: hidden;
+
+  border-radius: 24px;
+
+  background:
+    rgba(255, 255, 255, 0.93);
+
+  border:
+    1px solid rgba(63, 111, 59, 0.10);
+
+  box-shadow:
+    0 12px 30px rgba(44, 68, 36, 0.075);
+
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
+}
+
+
+.community-review-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 110px;
+  height: 110px;
+
+  right: -50px;
+  top: -50px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(139, 169, 124, 0.08);
+
+  pointer-events: none;
+}
+
+
+.community-review-card:hover {
+  transform:
+    translateY(-6px);
+
+  border-color:
+    rgba(63, 111, 59, 0.21);
+
+  box-shadow:
+    0 20px 42px rgba(44, 68, 36, 0.13);
+}
+
+
+
+/* ==================================================
+   STAR RATING
+   THIS CSS WAS MISSING
+================================================== */
+
+.rating-stars {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 3px;
+
+  line-height: 1;
+
+  color: #c6973f;
+}
+
+
+.rating-stars svg {
+  display: block;
+
+  width: 15px;
+  height: 15px;
+
+  flex-shrink: 0;
+}
+
+
+.rating-stars-sm svg {
+  width: 15px;
+  height: 15px;
+}
+
+
+.rating-stars-md svg {
+  width: 18px;
+  height: 18px;
+}
+
+
+.rating-stars-lg svg {
+  width: 21px;
+  height: 21px;
+}
+
+
+
+/* ----------------------------------
+   TOP: STARS + VERIFIED
+---------------------------------- */
+
+.community-review-top {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  min-height: 30px;
+}
+
+
+.verified-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  padding:
+    6px 10px;
+
+  border-radius: 50px;
+
+  background:
+    #edf5e8;
+
+  color:
+    #53764c;
+
+  font-size:
+    9px;
+
+  font-weight: 700;
+
+  letter-spacing:
+    0.2px;
+
+  white-space: nowrap;
+}
+
+
+.verified-badge svg {
+  width: 11px;
+  height: 11px;
+}
+
+
+
+/* ----------------------------------
+   QUOTATION MARK
+---------------------------------- */
+
+.community-quote {
+  height: 42px;
+
+  margin-top: 15px;
+
+  color:
+    #b79a72;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 58px;
+
+  font-weight: 400;
+
+  line-height: 0.95;
+
+  opacity: 0.72;
+}
+
+
+
+/* ----------------------------------
+   REVIEW TEXT
+---------------------------------- */
+
+.community-review-text {
+  flex: 1;
+
+  margin:
+    7px 0 22px;
+
+  color:
+    #50564d;
+
+  font-size: 14px;
+
+  line-height: 1.75;
+
+  display: -webkit-box;
+
+  -webkit-box-orient: vertical;
+
+  -webkit-line-clamp: 5;
+
+  overflow: hidden;
+
+  word-break: break-word;
+}
+
+
+
+/* ----------------------------------
+   CUSTOMER NAME
+---------------------------------- */
+
+.community-review-author {
+  margin-top: auto;
+
+  padding-top: 16px;
+
+  border-top:
+    1px solid rgba(63, 111, 59, 0.10);
+}
+
+
+.community-review-author strong {
+  display: block;
+
+  color: var(--dark-green);
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+
+.community-review-author span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #8a8c87;
+
+  font-size: 11px;
+
+  line-height: 1.4;
+}
+
+
+
+/* ----------------------------------
+   PRODUCT REVIEW LINK
+---------------------------------- */
+
+.community-product-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  width: fit-content;
+
+  margin-top: 13px;
+
+  color: var(--green);
+
+  text-decoration: none;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.community-product-link:hover {
+  color: var(--dark-green);
+
+  transform:
+    translateX(3px);
+}
+
+
+
+/* ----------------------------------
+   BOTTOM BUTTONS
+---------------------------------- */
+
+.customer-review-actions {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 38px;
+}
+
+
+
+/* ----------------------------------
+   EMPTY REVIEW STATE
+---------------------------------- */
+
+.empty-review-state {
+  max-width: 520px;
+
+  margin:
+    0 auto;
+
+  padding:
+    35px 25px;
+
+  text-align: center;
+
+  border-radius: 22px;
+
+  background:
+    rgba(255, 255, 255, 0.75);
+
+  border:
+    1px dashed rgba(63, 111, 59, 0.20);
+}
+
+
+.empty-review-state h3 {
+  margin-bottom: 7px;
+
+  color: var(--dark-green);
+
+  font-family:
+    "Marcellus",
+    serif;
+
+  font-size: 22px;
+}
+
+
+.empty-review-state p {
+  margin: 0;
+
+  color: var(--gray);
+
+  font-size: 13px;
+}
+
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 850px) {
+
+  .community-section-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  .reviews-header-link {
+    margin-top: -10px;
+  }
+
+
+  .featured-review-slider {
+    grid-template-columns:
+      repeat(
+        auto-fit,
+        minmax(260px, 340px)
+      );
+  }
+
+}
+
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 600px) {
+
+  .community-reviews-section {
+    padding-top: 50px;
+    padding-bottom: 55px;
+  }
+
+
+  .community-reviews-shell {
+    padding:
+      32px 17px;
+
+    border-radius: 25px;
+  }
+
+
+  .community-section-header {
+    margin-bottom: 28px;
+  }
+
+
+  .community-section-header h2 {
+    font-size: 32px;
+  }
+
+
+  .featured-review-slider {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+
+
+  .community-review-card {
+    max-width: none;
+
+    min-height: auto;
+
+    padding: 22px;
+
+    border-radius: 20px;
+  }
+
+
+  .community-review-text {
+    -webkit-line-clamp: 6;
+  }
+
+
+  .customer-review-actions {
+    display: grid;
+
+    grid-template-columns: 1fr;
+  }
+
+
+  .customer-review-actions .btn {
+    width: 100%;
+  }
+
+}
