@@ -58,7 +58,7 @@ const gallery = [
     alt: "Dr M Organics Neem Turmeric Anti Acne Soap"
   },
   {
-    image: "/images/home/detan-soap.jpeg",
+    image: "/images/home/detan-soap..jpeg",
     alt: "Dr M Organics deTan Glow Ubtan Soap"
   }
 ];
