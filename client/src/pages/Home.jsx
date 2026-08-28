@@ -59,7 +59,7 @@ const gallery = [
   },
   {
     image: "/images/home/detan-soap.jpeg",
-    alt: "Dr M Organics De-Tan Glow Ubtan Soap"
+    alt: "Dr M Organics deTan Glow Ubtan Soap"
   }
 ];
 
