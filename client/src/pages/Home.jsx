@@ -5,15 +5,62 @@ import api from "../api/axios.js";
 import ProductCard from "../components/ProductCard.jsx";
 import RatingStars from "../components/RatingStars.jsx";
 
-const categories = ["Organic Soap", "Hair Oil", "Lip Balm", "Face Care", "Body Care", "Herbal Collection"];
+const categories = [
+  {
+    name: "Organic Soap",
+    image: "/images/home/vitamin-glow-soap.jpeg"
+  },
+  {
+    name: "Hair Care",
+    image: "/images/home/herbal-shampoo.jpeg"
+  },
+  {
+    name: "Lip Balm",
+    image: "/images/home/kojic-lip-balm.jpeg"
+  },
+  {
+    name: "Face Care",
+    image: "/images/home/face-wash.jpeg"
+  },
+  {
+    name: "Acne Care",
+    image: "/images/home/neem-turmeric-soap.jpeg"
+  },
+  {
+    name: "Herbal Collection",
+    image: "/images/home/natural-ubtan.jpeg"
+  }
+];
 const concerns = ["Acne Care", "Dry Skin", "Dark Spots", "Hair Fall", "Pigmentation", "Dull Skin"];
 const gallery = [
-  "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=900&q=80"
+  {
+    image: "/images/home/face-wash.jpeg",
+    alt: "Dr M Organics Oil Controlling Face Wash"
+  },
+  {
+    image: "/images/home/kojic-lip-balm.jpeg",
+    alt: "Dr M Organics Kojic Acid Lip Lightener Balm"
+  },
+  {
+    image: "/images/home/herbal-shampoo.jpeg",
+    alt: "Dr M Organics Organic Herbal Shampoo"
+  },
+  {
+    image: "/images/home/vitamin-glow-soap.jpeg",
+    alt: "Dr M Organics Vitamin Glow Soap"
+  },
+  {
+    image: "/images/home/natural-ubtan.jpeg",
+    alt: "Dr M Organics Natural Glow Ubtan"
+  },
+  {
+    image: "/images/home/neem-turmeric-soap.jpeg",
+    alt: "Dr M Organics Neem Turmeric Anti Acne Soap"
+  },
+  {
+    image: "/images/home/detan-soap.jpeg",
+    alt: "Dr M Organics De-Tan Glow Ubtan Soap"
+  }
 ];
 
 const Home = () => {
@@ -53,17 +100,80 @@ const Home = () => {
           <div className="hero-trust-line"><span><FaCheckCircle /> Clean presentation</span><span><FaCheckCircle /> Nationwide delivery</span><span><FaCheckCircle /> Genuine review system</span></div>
         </div>
         <div className="hero-visual">
-          <div className="product-mockup mockup-one"><span>Dr M</span><h3>Rose Glow Ritual</h3></div>
-          <div className="product-mockup mockup-two"><span>Dr M</span><h3>Botanical Hair Care</h3></div>
-          <div className="floating-card"><FaSeedling /><p>Plant-inspired care</p></div>
-        </div>
+
+  <div className="hero-product-image hero-product-one">
+    <img
+      src="/images/home/face-wash.jpeg"
+      alt="Dr M Organics Oil Controlling Face Wash"
+    />
+
+    <div className="hero-product-label">
+      <span>Skin Care</span>
+      <strong>Oil Control Face Wash</strong>
+    </div>
+  </div>
+
+
+  <div className="hero-product-image hero-product-two">
+    <img
+      src="/images/home/herbal-shampoo.jpeg"
+      alt="Dr M Organics Organic Herbal Shampoo"
+    />
+
+    <div className="hero-product-label">
+      <span>Hair Care</span>
+      <strong>Organic Herbal Shampoo</strong>
+    </div>
+  </div>
+
+
+  <div className="floating-card">
+    <FaSeedling />
+    <p>Plant-inspired care</p>
+  </div>
+
+</div>
       </section>
 
-      <section className="section"><div className="section-heading"><span className="section-tag">Browse Collection</span><h2>Shop by Category</h2><p>Find the ritual that fits your routine.</p></div><div className="category-grid">{categories.map((cat, index) => <Link to={`/shop?category=${encodeURIComponent(cat)}`} className="category-card" key={cat}><div className={`category-circle category-${index + 1}`}><FaLeaf /></div><h3>{cat}</h3></Link>)}</div></section>
+      <section className="section"><div className="section-heading"><span className="section-tag">Browse Collection</span><h2>Shop by Category</h2><p>Find the ritual that fits your routine.</p></div>
+        <div className="category-grid">
+
+  {categories.map((category) => (
+
+    <Link
+      to={`/shop?category=${encodeURIComponent(category.name)}`}
+      className="category-card"
+      key={category.name}
+    >
+
+      <div className="category-circle category-image-circle">
+
+        <img
+          src={category.image}
+          alt={category.name}
+          loading="lazy"
+        />
+
+      </div>
+
+      <h3>
+        {category.name}
+      </h3>
+
+    </Link>
+
+  ))}
+
+</div>
+      </section>
 
       <section className="promo-banner"><div><span className="section-tag">Naturally Beautiful</span><h2>Small rituals. Softer skin. A more considered routine.</h2><p>Discover Dr M Organics essentials designed for a refined, easy-to-shop skincare experience.</p><Link to="/shop" className="btn primary-btn">View Collection</Link></div></section>
 
-      <section className="section"><div className="section-heading"><span className="section-tag">Best Sellers</span><h2>Featured Products</h2><p>Clean cards, consistent imagery, and product information that is easier to compare.</p></div><div className="product-grid">{featured.map((product) => <ProductCard product={product} key={product._id} />)}</div></section>
+      <section className="section">
+        <div className="section-heading">
+          <span className="section-tag">Best Sellers</span><h2>Featured Products</h2><p>Clean cards, consistent imagery, and product information that is easier to compare.</p>
+        </div>
+        <div className="product-grid">{featured.map((product) => <ProductCard product={product} key={product._id} />)}</div></section>
 
       <section className="section concern-section"><div className="section-heading"><span className="section-tag">Targeted Care</span><h2>Shop by Concern</h2><p>Explore the collection by skincare and haircare goals.</p></div><div className="concern-grid">{concerns.map((concern) => <Link to={`/shop?search=${encodeURIComponent(concern)}`} className="concern-card" key={concern}><FaSpa /><h3>{concern}</h3></Link>)}</div></section>
 
@@ -292,7 +402,72 @@ const Home = () => {
 
 </section>
 
-      <section className="section"><div className="section-heading"><span className="section-tag">@drmorganics</span><h2>Organic Beauty Inspiration</h2><p>Product rituals, botanical textures, and skincare moments.</p></div><div className="masonry-grid">{gallery.map((img, index) => <div className={`gallery-item ${index === 0 || index === 4 ? "tall" : ""} ${index === 2 ? "wide" : ""}`} key={img}><img src={img} alt="Dr M Organics beauty inspiration" loading="lazy" /></div>)}</div></section>
+<section className="section instagram-home-section">
+
+  <div className="section-heading">
+
+    <span className="section-tag">
+      @drmorganics6
+    </span>
+
+    <h2>
+      Follow Our Beauty Journey
+    </h2>
+
+    <p>
+      Discover Dr M Organics skincare, haircare,
+      product rituals and botanical beauty inspiration.
+    </p>
+
+  </div>
+
+
+  <div className="masonry-grid">
+
+    {gallery.map((item, index) => (
+
+      <a
+        href="https://www.instagram.com/drmorganics6?igsi=MWFrYWpsMjB6NDJuOQ=="
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`gallery-item ${
+          index === 0 || index === 4 ? "tall" : ""
+        } ${
+          index === 2 ? "wide" : ""
+        }`}
+        key={item.image}
+        aria-label="View Dr M Organics on Instagram"
+      >
+
+        <img
+          src={item.image}
+          alt={item.alt}
+          loading="lazy"
+        />
+
+        <div className="instagram-hover">
+
+          <span className="instagram-icon">
+            ◎
+          </span>
+
+          <strong>
+            View on Instagram
+          </strong>
+
+          <small>
+            @drmorganics6
+          </small>
+
+        </div>
+
+      </a>
+
+    ))}
+
+  </div>
+
+</section>
 
       <section className="newsletter"><div className="newsletter-content"><span className="section-tag">Join Our Glow Club</span><h2>Skincare notes and special offers</h2><p>Subscribe for product updates, beauty routines, and Dr M Organics news.</p><form onSubmit={subscribe}><input value={newsletterEmail} onChange={(e) => setNewsletterEmail(e.target.value)} type="email" placeholder="Enter your email address" required /><button type="submit">Subscribe</button></form>{message && <p className="form-message">{message}</p>}</div></section>
     </>
