@@ -7093,3 +7093,49 @@ summary {
   }
 
 }
+/* =========================================
+   STAR RATING STYLES
+========================================= */
+
+.rating-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  line-height: 1;
+  color: #c89b4b;
+}
+
+.rating-stars svg {
+  display: block;
+  flex-shrink: 0;
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+
+/* SMALL SIZE */
+
+.rating-stars-sm {
+  gap: 2px;
+}
+
+.rating-stars-sm svg {
+  width: 14px;
+  height: 14px;
+}
+
+
+/* OPTIONAL MEDIUM SIZE */
+
+.rating-stars-md svg {
+  width: 18px;
+  height: 18px;
+}
+
+
+/* OPTIONAL LARGE SIZE */
+
+.rating-stars-lg svg {
+  width: 22px;
+  height: 22px;
+}
