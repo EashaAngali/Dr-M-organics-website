@@ -8177,3 +8177,553 @@ summary {
   }
 
 }
+/* ==================================================
+   PRODUCT REVIEW - COMPLETE MISSING STYLES
+================================================== */
+
+
+/* REVIEW META: SKIN TYPE / USED FOR */
+
+.review-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin-top: 14px;
+}
+
+.review-meta span {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 6px 10px;
+
+  border-radius: 50px;
+
+  background: #f1f6ed;
+
+  color: #52704c;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  border: 1px solid rgba(63, 111, 59, 0.10);
+}
+
+
+/* ==================================================
+   REVIEW CUSTOMER PHOTOS
+================================================== */
+
+.review-photos {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 17px;
+}
+
+.review-photos button {
+  width: 82px;
+  height: 82px;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  border-radius: 13px;
+
+  border:
+    1px solid rgba(63, 111, 59, 0.12);
+
+  background: #f7f4ed;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.review-photos button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 9px 22px rgba(44, 68, 36, 0.15);
+}
+
+.review-photos img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* ==================================================
+   REVIEW VIDEO
+================================================== */
+
+.review-video {
+  width: 100%;
+
+  max-height: 420px;
+
+  margin-top: 18px;
+
+  border-radius: 17px;
+
+  background: #111;
+
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.10);
+}
+
+
+/* ==================================================
+   DR M ORGANICS ADMIN REPLY
+================================================== */
+
+.brand-reply {
+  margin-top: 20px;
+
+  padding: 17px 19px;
+
+  border-radius: 16px;
+
+  border-left:
+    4px solid #64825d;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f1f6ed,
+      #faf6ef
+    );
+}
+
+.brand-reply strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #345238;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.brand-reply p {
+  margin: 0;
+
+  color: #646b61;
+
+  font-size: 12px;
+
+  line-height: 1.65;
+}
+
+
+/* ==================================================
+   HELPFUL + REPORT BUTTONS
+================================================== */
+
+.review-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 9px;
+
+  margin-top: 20px;
+
+  padding-top: 15px;
+
+  border-top:
+    1px solid rgba(63, 111, 59, 0.09);
+}
+
+.review-actions button {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 6px;
+
+  min-height: 34px;
+
+  padding: 7px 12px;
+
+  border-radius: 50px;
+
+  border:
+    1px solid rgba(63, 111, 59, 0.14);
+
+  background: #ffffff;
+
+  color: #657061;
+
+  font-family: inherit;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.review-actions button:first-child:hover {
+  color: #3f6f3b;
+
+  background: #edf5e8;
+
+  border-color:
+    rgba(63, 111, 59, 0.25);
+
+  transform: translateY(-1px);
+}
+
+.review-actions button:last-child:hover {
+  color: #9c4d43;
+
+  background: #fff2ef;
+
+  border-color:
+    rgba(156, 77, 67, 0.20);
+}
+
+
+/* ==================================================
+   CUSTOMER PHOTO GALLERY INSIDE PRODUCT REVIEWS
+================================================== */
+
+.customer-gallery-section {
+  margin-top: 45px;
+
+  padding: 32px;
+
+  border-radius: 25px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fffaf3,
+      #edf4e8
+    );
+
+  border:
+    1px solid rgba(63, 111, 59, 0.10);
+}
+
+.customer-gallery-section
+.section-heading.compact {
+  margin-bottom: 24px;
+}
+
+.customer-gallery-section
+.section-heading.compact h2 {
+  font-size:
+    clamp(27px, 4vw, 38px);
+}
+
+
+/* PHOTO STRIP */
+
+.customer-photo-strip {
+  display: flex;
+
+  gap: 12px;
+
+  overflow-x: auto;
+
+  padding-bottom: 7px;
+
+  scroll-snap-type: x proximity;
+
+  scrollbar-width: thin;
+}
+
+.customer-photo-strip button {
+  flex: 0 0 150px;
+
+  height: 180px;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  border-radius: 17px;
+
+  border:
+    2px solid transparent;
+
+  background: #ffffff;
+
+  cursor: pointer;
+
+  scroll-snap-align: start;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.customer-photo-strip button:hover {
+  transform: translateY(-4px);
+
+  border-color:
+    rgba(63, 111, 59, 0.40);
+
+  box-shadow:
+    0 12px 28px rgba(44, 68, 36, 0.14);
+}
+
+.customer-photo-strip img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* ==================================================
+   REVIEW IMAGE LIGHTBOX
+================================================== */
+
+.review-lightbox {
+  z-index: 10000;
+}
+
+.review-lightbox-card {
+  width: min(900px, 94vw);
+  max-height: 88vh;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.1fr)
+    minmax(280px, 0.9fr);
+
+  overflow: hidden;
+
+  border-radius: 24px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.35);
+}
+
+.review-lightbox-card > img {
+  width: 100%;
+  height: 100%;
+
+  min-height: 450px;
+
+  object-fit: contain;
+
+  background: #f5f2eb;
+}
+
+.review-lightbox-card > div {
+  padding: 32px;
+
+  overflow-y: auto;
+}
+
+.review-lightbox-card h3 {
+  margin: 15px 0 8px;
+
+  color: #263e2b;
+
+  font-family: "Marcellus", serif;
+
+  font-size: 26px;
+}
+
+.review-lightbox-card p {
+  color: #666;
+
+  line-height: 1.7;
+
+  font-size: 13px;
+}
+
+.review-lightbox-card strong {
+  display: block;
+
+  margin-top: 18px;
+
+  color: #3f6f3b;
+}
+
+
+/* ==================================================
+   LOAD MORE REVIEWS
+================================================== */
+
+.load-more-wrap {
+  display: flex;
+
+  justify-content: center;
+
+  margin-top: 30px;
+}
+
+
+/* ==================================================
+   EMPTY REVIEW STATE
+================================================== */
+
+.product-reviews .empty-review-state {
+  grid-column: 1 / -1;
+
+  width: min(560px, 100%);
+
+  margin: 0 auto;
+
+  padding: 38px 25px;
+
+  text-align: center;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fffdf8,
+      #f3f7ef
+    );
+
+  border:
+    1px dashed
+    rgba(63, 111, 59, 0.25);
+}
+
+.product-reviews
+.empty-review-state h3 {
+  margin-bottom: 8px;
+
+  color: #304b34;
+
+  font-family: "Marcellus", serif;
+
+  font-size: 24px;
+}
+
+.product-reviews
+.empty-review-state p {
+  margin: 0;
+
+  color: #7b7b75;
+
+  font-size: 12px;
+}
+
+
+/* ==================================================
+   VERIFIED BADGE INSIDE PRODUCT REVIEW
+================================================== */
+
+.customer-review-card
+.verified-badge {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 5px;
+
+  margin-top: 5px;
+
+  padding: 5px 9px;
+
+  border-radius: 50px;
+
+  background: #eaf3e6;
+
+  color: #52764c;
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.customer-review-card
+.verified-badge svg {
+  width: 11px;
+  height: 11px;
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 700px) {
+
+  .review-meta {
+    gap: 6px;
+  }
+
+
+  .review-photos button {
+    width: 70px;
+    height: 70px;
+  }
+
+
+  .review-actions {
+    align-items: stretch;
+
+    flex-direction: column;
+  }
+
+
+  .review-actions button {
+    justify-content: center;
+
+    width: 100%;
+  }
+
+
+  .customer-gallery-section {
+    padding: 25px 17px;
+  }
+
+
+  .customer-photo-strip button {
+    flex-basis: 125px;
+
+    height: 155px;
+  }
+
+
+  .review-lightbox-card {
+    grid-template-columns: 1fr;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+  }
+
+
+  .review-lightbox-card > img {
+    min-height: 280px;
+
+    max-height: 50vh;
+  }
+
+
+  .review-lightbox-card > div {
+    padding: 24px 20px;
+  }
+
+}
