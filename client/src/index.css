@@ -8090,3 +8090,90 @@ summary {
   }
 
 }
+/* ==================================================
+   SHOP - COMING SOON EMPTY STATE
+================================================== */
+
+.coming-soon-products {
+  width: min(650px, 100%);
+
+  margin: 45px auto 20px;
+
+  padding: 55px 30px;
+
+  text-align: center;
+
+  border-radius: 30px;
+
+  border:
+    1px solid rgba(63, 111, 59, 0.12);
+
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(139, 169, 124, 0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(208, 178, 137, 0.15),
+      transparent 32%
+    ),
+    linear-gradient(
+      145deg,
+      #fffdf8,
+      #f8f1e7 52%,
+      #eef5e9
+    );
+
+  box-shadow:
+    0 18px 45px
+    rgba(46, 72, 40, 0.08);
+}
+
+
+.coming-soon-products h3 {
+  margin:
+    12px 0 10px;
+
+  color:
+    var(--dark-green);
+
+  font-family:
+    "Marcellus",
+    serif;
+
+  font-size:
+    clamp(34px, 5vw, 48px);
+}
+
+
+.coming-soon-products p {
+  max-width: 480px;
+
+  margin:
+    0 auto;
+
+  color:
+    var(--gray);
+
+  font-size:
+    14px;
+
+  line-height:
+    1.7;
+}
+
+
+@media (max-width: 600px) {
+
+  .coming-soon-products {
+    margin-top: 30px;
+
+    padding:
+      42px 20px;
+
+    border-radius: 24px;
+  }
+
+}
