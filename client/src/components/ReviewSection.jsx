@@ -65,6 +65,63 @@ const ReviewSection = ({
     onSummaryChange?.(data.summary);
   };
 
+  /* =========================================
+   LOAD PRODUCT REVIEWS ON PAGE OPEN
+========================================= */
+
+useEffect(() => {
+  if (!productId) return;
+
+  let cancelled = false;
+
+  const loadInitialReviews = async () => {
+    try {
+      const { data } = await api.get(
+        `/api/reviews/product/${productId}?page=1&limit=6`
+      );
+
+      if (cancelled) return;
+
+      setReviews(data.reviews || []);
+
+      setSummary(
+        data.summary || {
+          average: 0,
+          total: 0,
+          recommendPercent: 0,
+          distribution: {
+            1: 0,
+            2: 0,
+            3: 0,
+            4: 0,
+            5: 0
+          }
+        }
+      );
+
+      setPage(data.page || 1);
+      setPages(data.pages || 1);
+
+      onSummaryChange?.(data.summary);
+
+    } catch (error) {
+      console.error(
+        "Unable to load product reviews:",
+        error
+      );
+
+      if (!cancelled) {
+        setReviews([]);
+      }
+    }
+  };
+
+  loadInitialReviews();
+
+  return () => {
+    cancelled = true;
+  };
+}, [productId, onSummaryChange]);
 useEffect(() => {
 
   if (!openReviewForm) return;
