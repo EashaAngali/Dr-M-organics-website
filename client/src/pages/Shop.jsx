@@ -76,7 +76,24 @@ const Shop = () => {
 
       {loading && <p className="center-text">Loading products...</p>}
       {error && <p className="error-text">{error}</p>}
-      {!loading && !products.length && <p className="center-text">No products found.</p>}
+     {!loading && !products.length && (
+  <div className="coming-soon-products">
+
+    <span className="section-tag">
+      Dr M Organics
+    </span>
+
+    <h3>
+      Coming Soon
+    </h3>
+
+    <p>
+      Something special is being prepared for this collection.
+      Our new products will be available soon.
+    </p>
+
+  </div>
+)}
 
       <div className="product-grid">
         {products.map((product) => <ProductCard product={product} key={product._id} />)}
